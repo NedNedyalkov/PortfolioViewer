@@ -1,0 +1,254 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+@using System.Timers
+@using Microsoft.Extensions.Options
+
+@implements IDisposable
+@inject PortfolioService PortfolioService
+@inject IOptions<PortfolioSettings> Settings
+
+<PageTitle>Portfolio</PageTitle>
+
+<h1 class="mb-3">Crypto Portfolio Viewer</h1>
+
+<InputFile OnChange="HandleFileUpload" />
+
+
+<div class="my-3">
+    <label>Refresh rate (minutes): @RefreshRateMinutes</label>
+    <input type="range" min="1" max="10" step="1" value="@RefreshRateMinutes"
+           @oninput="UpdateRefreshRate" />
+</div>
+
+@if (FullPortfolio is null)
+{
+    <p>Upload a file to begin.</p>
+}
+else if (string.IsNullOrWhiteSpace(ErrorMessage))
+{
+    <h3>Summary</h3>
+    <p>Total Initial Value: @InitialValue.ToString("C")</p>
+    <p>Total Current Value: @CurrentValue.ToString("C")</p>
+    <p>Overall Change: @OverallChange.ToString("P2")</p>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Ticker</th>
+                <th>Amount</th>
+                <th>Cost Basis</th>
+                <th>Initial Value</th>
+                <th>Current Value</th>
+                <th>Change</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var position in FullPortfolio.Positions)
+        {
+            if (position is AggregatePosition ap)
+            {
+                <tr class="aggregate-row">
+                    <td>
+                        <button class="expand-btn" @onclick="() => Toggle(ap)">
+                            @(Expanded.Contains(ap) ? "▼" : "►")
+                        </button>
+                    </td>
+                    <td><strong>@ap.Ticker.Symbol</strong> <span class="agg-label">(Aggregate)</span></td>
+                    <td>@ap.Amount</td>
+                    <td>@ap.CostBasis.ToString("C")</td>
+                    <td>@PortfolioService.InitialValue(ap).ToString("C")</td>
+                    <td>@PortfolioService.CurrentValue(ap).ToString("C")</td>
+                    <td>@PortfolioService.ChangePercent(ap).ToString("P2")</td>
+                </tr>
+
+                @if (Expanded.Contains(ap))
+                {
+                    @foreach (var inner in ap.InnerPositions.Select((v, i) => new { v, i }))
+                    {
+                        <tr class="child-row">
+                            <td></td>
+                            <td/>
+                            <td>@inner.v.Amount</td>
+                            <td>@inner.v.CostBasis.ToString("C")</td>
+                            <td>@PortfolioService.InitialValue(inner.v).ToString("C")</td>
+                            <td>@PortfolioService.CurrentValue(inner.v).ToString("C")</td>
+                            <td>@PortfolioService.ChangePercent(inner.v).ToString("P2")</td>
+                        </tr>
+                    }
+
+                    <tr class="child-spacer"><td colspan="7"></td></tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td></td>
+                    <td>@position.Ticker.Symbol</td>
+                    <td>@position.Amount</td>
+                    <td>@position.CostBasis.ToString("C")</td>
+                    <td>@PortfolioService.InitialValue(position).ToString("C")</td>
+                    <td>@PortfolioService.CurrentValue(position).ToString("C")</td>
+                    <td>@PortfolioService.ChangePercent(position).ToString("P2")</td>
+                </tr>
+            }
+        }
+
+
+        </tbody>
+    </table>
+}
+
+@if (!string.IsNullOrWhiteSpace(ErrorMessage))
+{
+    <div class="alert alert-danger my-3">
+        @ErrorMessage
+    </div>
+}
+
+@code
+{
+    CryptoPortfolio.Domain.Portfolio? FullPortfolio;
+    HashSet<AggregatePosition> Expanded = new();
+    decimal InitialValue;
+    decimal CurrentValue;
+    decimal OverallChange;
+    int RefreshRateMinutes = 5;
+    System.Timers.Timer? timer;
+    string? ErrorMessage;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        RefreshRateMinutes = Settings.Value.RefreshRateMinutes;
+    }
+
+    async Task HandleFileUpload(InputFileChangeEventArgs e)
+    {
+        Logger.WriteLine($"File uploaded: {e.File.Name}, size: {e.File.Size} bytes");
+        FullPortfolio = null;
+
+        var file = (e.File as IBrowserFile);
+        if (file is null)
+        {
+            ShowError("No file selected.");
+            Logger.WriteLine("No file selected.");
+            return;
+        }
+
+        using var stream = file.OpenReadStream();
+        using var reader = new StreamReader(stream);
+        var text = await reader.ReadToEndAsync();
+
+        var portfolioResult = PortfolioService.ProcessUploadedFile(text);
+        if (portfolioResult.Success)
+        {
+            FullPortfolio = portfolioResult.Value!;
+        }
+        else
+        {
+            ShowError(portfolioResult.Error!);
+            return;
+        }
+
+        var refreshPricesResult = await PortfolioService.RefreshPrices(FullPortfolio);
+        if (refreshPricesResult.Success)
+        {
+            CalculateSummary();
+            StartTimer();
+            HideError();
+        }
+        else
+        {
+            ShowError(refreshPricesResult.Error!);
+        }
+    }
+
+    void ShowError(string message)
+    {
+        ErrorMessage = message;
+        StateHasChanged();
+    }
+
+    void HideError()
+    {
+        ErrorMessage = null!;
+        StateHasChanged();
+    }
+
+    async Task ShowErrorAsync(string message)
+    {
+        ErrorMessage = message;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    void UpdateRefreshRate(ChangeEventArgs e)
+    {
+        RefreshRateMinutes = int.Parse(e.Value!.ToString()!);
+        StartTimer();
+    }
+
+    void StartTimer()
+    {
+        if (timer is not null)
+        {
+            timer.Elapsed -= Timer_Elapsed;
+            timer.Dispose();
+        }
+
+        timer = new System.Timers.Timer(TimeSpan.FromMinutes(RefreshRateMinutes));
+        timer.Elapsed += Timer_Elapsed;
+        timer.Start();
+    }
+
+    async void Timer_Elapsed(object? sender, ElapsedEventArgs e)
+    {
+        try 
+        {
+            var refreshPricesResult = await PortfolioService.RefreshPrices(FullPortfolio!);
+            if (refreshPricesResult.Success)
+            {
+                CalculateSummary();
+                await InvokeAsync(StateHasChanged);
+            }
+            else
+            {
+                await ShowErrorAsync(refreshPricesResult.Error!);
+            }
+        }
+        catch (Exception ex)
+        {
+            await ShowErrorAsync($"Refresh failed: {ex.Message}");
+        }
+    }
+
+    public void Dispose()
+    {
+        if (timer is not null)
+        {
+            timer.Elapsed -= Timer_Elapsed;
+            timer.Dispose();
+        }
+    }
+
+    void Toggle(AggregatePosition ap)
+    {
+        if (!Expanded.Add(ap))
+            Expanded.Remove(ap);
+    }
+
+    void CalculateSummary()
+    {
+        if (FullPortfolio?.Positions is null)
+        {
+            ShowError("Portfolio positions are null");
+            return;
+        }
+
+        InitialValue = PortfolioService.InitialValue(FullPortfolio.Positions);
+        CurrentValue = PortfolioService.CurrentValue(FullPortfolio.Positions);
+        OverallChange = InitialValue != 0 ? (CurrentValue - InitialValue) / InitialValue : 0;
+    }
+}

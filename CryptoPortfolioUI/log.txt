@@ -1,0 +1,122 @@
+25-11-26 17:11:44.911 - [BuildCache] Cache ticker data...
+25-11-26 17:11:44.924 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=0&limit=100
+25-11-26 17:11:45.034 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=100&limit=100
+25-11-26 17:11:45.114 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=200&limit=100
+25-11-26 17:11:45.160 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=300&limit=100
+25-11-26 17:11:45.206 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=400&limit=100
+25-11-26 17:11:45.252 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=500&limit=100
+25-11-26 17:11:45.299 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=600&limit=100
+25-11-26 17:11:45.345 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=700&limit=100
+25-11-26 17:11:45.391 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=800&limit=100
+25-11-26 17:11:45.438 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=900&limit=100
+25-11-26 17:11:45.484 - [BuildCache] Cache ticker data finished.
+25-11-26 17:11:57.437 - [BuildCache] Cache ticker data...
+25-11-26 17:11:57.449 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=0&limit=100
+25-11-26 17:11:57.698 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=100&limit=100
+25-11-26 17:11:57.742 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=200&limit=100
+25-11-26 17:11:57.785 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=300&limit=100
+25-11-26 17:11:57.828 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=400&limit=100
+25-11-26 17:11:57.872 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=500&limit=100
+25-11-26 17:11:57.915 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=600&limit=100
+25-11-26 17:11:57.959 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=700&limit=100
+25-11-26 17:11:58.004 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=800&limit=100
+25-11-26 17:11:58.047 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=900&limit=100
+25-11-26 17:11:58.090 - [BuildCache] Cache ticker data finished.
+25-11-26 17:34:00.861 - [BuildCache] Cache ticker data...
+25-11-26 17:34:00.873 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=0&limit=100
+25-11-26 17:34:00.980 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=100&limit=100
+25-11-26 17:34:01.032 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=200&limit=100
+25-11-26 17:34:01.077 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=300&limit=100
+25-11-26 17:34:01.121 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=400&limit=100
+25-11-26 17:34:01.166 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=500&limit=100
+25-11-26 17:34:01.211 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=600&limit=100
+25-11-26 17:34:01.255 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=700&limit=100
+25-11-26 17:34:01.299 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=800&limit=100
+25-11-26 17:34:01.344 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=900&limit=100
+25-11-26 17:34:01.389 - [BuildCache] Cache ticker data finished.
+25-11-26 17:34:09.185 - [HandleFileUpload] File uploaded: ValidPortfolio_AggregatePositions.txt, size: 121 bytes
+25-11-26 17:34:09.197 - [ParseFromLines] Parsing portfolio from provided lines.
+25-11-26 17:34:09.199 - [ParseFromLines] Parsed 8 positions from provided lines.
+25-11-26 17:34:09.201 - [ParseFromLines] Portfolio with 5 positions generated.
+25-11-26 17:34:09.202 - [GetPriceAsync] Trying to get price for ETH
+25-11-26 17:34:09.203 - [GetPriceAsync] Using cached price for ETH: 2975.76 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:34:09.204 - [GetPriceAsync] Trying to get price for BTC
+25-11-26 17:34:09.204 - [GetPriceAsync] Using cached price for BTC: 88655.63 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:34:09.204 - [GetPriceAsync] Trying to get price for SHIB
+25-11-26 17:34:09.204 - [GetPriceAsync] Using cached price for SHIB: 0.000009 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:34:09.205 - [GetPriceAsync] Trying to get price for USDT
+25-11-26 17:34:09.205 - [GetPriceAsync] Using cached price for USDT: 0.999775 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:34:09.205 - [GetPriceAsync] Trying to get price for SOL
+25-11-26 17:34:09.205 - [GetPriceAsync] Using cached price for SOL: 138.67 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:35:09.207 - [GetPriceAsync] Trying to get price for ETH
+25-11-26 17:35:09.207 - [GetPriceAsync] Using cached price for ETH: 2975.76 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:35:09.207 - [GetPriceAsync] Trying to get price for BTC
+25-11-26 17:35:09.208 - [GetPriceAsync] Using cached price for BTC: 88655.63 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:35:09.208 - [GetPriceAsync] Trying to get price for SHIB
+25-11-26 17:35:09.208 - [GetPriceAsync] Using cached price for SHIB: 0.000009 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:35:09.208 - [GetPriceAsync] Trying to get price for USDT
+25-11-26 17:35:09.209 - [GetPriceAsync] Using cached price for USDT: 0.999775 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:35:09.209 - [GetPriceAsync] Trying to get price for SOL
+25-11-26 17:35:09.209 - [GetPriceAsync] Using cached price for SOL: 138.67 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:36:09.198 - [GetPriceAsync] Trying to get price for ETH
+25-11-26 17:36:09.198 - [GetPriceAsync] Using cached price for ETH: 2975.76 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:36:09.199 - [GetPriceAsync] Trying to get price for BTC
+25-11-26 17:36:09.199 - [GetPriceAsync] Using cached price for BTC: 88655.63 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:36:09.199 - [GetPriceAsync] Trying to get price for SHIB
+25-11-26 17:36:09.199 - [GetPriceAsync] Using cached price for SHIB: 0.000009 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:36:09.199 - [GetPriceAsync] Trying to get price for USDT
+25-11-26 17:36:09.200 - [GetPriceAsync] Using cached price for USDT: 0.999775 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:36:09.200 - [GetPriceAsync] Trying to get price for SOL
+25-11-26 17:36:09.200 - [GetPriceAsync] Using cached price for SOL: 138.67 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:37:09.196 - [GetPriceAsync] Trying to get price for ETH
+25-11-26 17:37:09.197 - [GetPriceAsync] Using cached price for ETH: 2975.76 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:37:09.197 - [GetPriceAsync] Trying to get price for BTC
+25-11-26 17:37:09.197 - [GetPriceAsync] Using cached price for BTC: 88655.63 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:37:09.198 - [GetPriceAsync] Trying to get price for SHIB
+25-11-26 17:37:09.198 - [GetPriceAsync] Using cached price for SHIB: 0.000009 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:37:09.198 - [GetPriceAsync] Trying to get price for USDT
+25-11-26 17:37:09.198 - [GetPriceAsync] Using cached price for USDT: 0.999775 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:37:09.198 - [GetPriceAsync] Trying to get price for SOL
+25-11-26 17:37:09.199 - [GetPriceAsync] Using cached price for SOL: 138.67 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:38:09.190 - [GetPriceAsync] Trying to get price for ETH
+25-11-26 17:38:09.191 - [GetPriceAsync] Using cached price for ETH: 2975.76 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:38:09.191 - [GetPriceAsync] Trying to get price for BTC
+25-11-26 17:38:09.191 - [GetPriceAsync] Using cached price for BTC: 88655.63 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:38:09.191 - [GetPriceAsync] Trying to get price for SHIB
+25-11-26 17:38:09.192 - [GetPriceAsync] Using cached price for SHIB: 0.000009 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:38:09.192 - [GetPriceAsync] Trying to get price for USDT
+25-11-26 17:38:09.192 - [GetPriceAsync] Using cached price for USDT: 0.999775 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:38:09.192 - [GetPriceAsync] Trying to get price for SOL
+25-11-26 17:38:09.192 - [GetPriceAsync] Using cached price for SOL: 138.67 (LastUpdated: 11/26/2025 5:34:00 PM)
+25-11-26 17:39:09.193 - [GetPriceAsync] Trying to get price for ETH
+25-11-26 17:39:09.194 - [GetPriceAsync] Refreshing price for ETH (id: Ticker { Symbol = ETH, Id = 80, CurrentPrice = 2975.76, LastUpdated = 11/26/2025 5:34:00 PM }) (LastUpdated: 11/26/2025 5:34:00 PM) from API...
+25-11-26 17:39:09.195 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/ticker/?id=80
+25-11-26 17:39:09.292 - [RefreshPrice] Updated price for id ETH: 2975.81
+25-11-26 17:39:09.293 - [GetPriceAsync] Trying to get price for BTC
+25-11-26 17:39:09.293 - [GetPriceAsync] Refreshing price for BTC (id: Ticker { Symbol = BTC, Id = 90, CurrentPrice = 88655.63, LastUpdated = 11/26/2025 5:34:00 PM }) (LastUpdated: 11/26/2025 5:34:00 PM) from API...
+25-11-26 17:39:09.294 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/ticker/?id=90
+25-11-26 17:39:09.332 - [RefreshPrice] Updated price for id BTC: 88712.99
+25-11-26 17:39:09.332 - [GetPriceAsync] Trying to get price for SHIB
+25-11-26 17:39:09.333 - [GetPriceAsync] Refreshing price for SHIB (id: Ticker { Symbol = SHIB, Id = 45088, CurrentPrice = 0.000009, LastUpdated = 11/26/2025 5:34:00 PM }) (LastUpdated: 11/26/2025 5:34:00 PM) from API...
+25-11-26 17:39:09.333 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/ticker/?id=45088
+25-11-26 17:39:09.372 - [RefreshPrice] Updated price for id SHIB: 0.000009
+25-11-26 17:39:09.372 - [GetPriceAsync] Trying to get price for USDT
+25-11-26 17:39:09.372 - [GetPriceAsync] Refreshing price for USDT (id: Ticker { Symbol = USDT, Id = 518, CurrentPrice = 0.999775, LastUpdated = 11/26/2025 5:34:00 PM }) (LastUpdated: 11/26/2025 5:34:00 PM) from API...
+25-11-26 17:39:09.373 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/ticker/?id=518
+25-11-26 17:39:09.411 - [RefreshPrice] Updated price for id USDT: 0.999963
+25-11-26 17:39:09.411 - [GetPriceAsync] Trying to get price for SOL
+25-11-26 17:39:09.411 - [GetPriceAsync] Refreshing price for SOL (id: Ticker { Symbol = SOL, Id = 48543, CurrentPrice = 138.67, LastUpdated = 11/26/2025 5:34:00 PM }) (LastUpdated: 11/26/2025 5:34:00 PM) from API...
+25-11-26 17:39:09.412 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/ticker/?id=48543
+25-11-26 17:39:09.450 - [RefreshPrice] Updated price for id SOL: 138.81
+25-11-26 17:40:28.750 - [BuildCache] Cache ticker data...
+25-11-26 17:40:28.762 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=0&limit=100
+25-11-26 17:40:29.015 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=100&limit=100
+25-11-26 17:40:29.059 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=200&limit=100
+25-11-26 17:40:29.102 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=300&limit=100
+25-11-26 17:40:29.145 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=400&limit=100
+25-11-26 17:40:29.188 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=500&limit=100
+25-11-26 17:40:29.231 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=600&limit=100
+25-11-26 17:40:29.274 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=700&limit=100
+25-11-26 17:40:29.318 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=800&limit=100
+25-11-26 17:40:29.361 - [TryRequest] Attempt 1 for https://api.coinlore.net/api/tickers/?start=900&limit=100
+25-11-26 17:40:29.422 - [BuildCache] Cache ticker data finished.
